@@ -1,4 +1,3 @@
-﻿using System;
 namespace M03UF2Examen
 {
     public class Menu
