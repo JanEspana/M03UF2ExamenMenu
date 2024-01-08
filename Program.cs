@@ -20,6 +20,18 @@ namespace M03UF2Examen
                 {
                     OddNum();
                 }
+                else if (option == 2)
+                {
+                    PowerOfNum();
+                }
+                else if (option == 3)
+                {
+                    RandNum();
+                }
+                else if (option == 4)
+                {
+                    CountLetter();
+                }
             }
             while (option < 5);
         }
@@ -37,6 +49,56 @@ namespace M03UF2Examen
             {
                 Console.WriteLine(notOdd);
             }
+        }
+        public static void PowerOfNum()
+        {
+            const string BASE = "Escriu una base: ", EXP = "Escriu l'exponent: ";
+            int input, exp, output = 1;
+            Console.Write(BASE);
+            input = Convert.ToInt32(Console.ReadLine());
+            Console.Write(EXP);
+            exp = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < exp; i++)
+            {
+                output = output * input;
+            }
+            Console.WriteLine(output);
+        }
+        public static void RandNum()
+        {
+            const string MIN = "Escriu el nombre mínim que por sortir: ", MAX = "Escriu el nombre màxim que por sortir: ";
+            int min, max;
+            Console.Write(MIN);
+            min = Convert.ToInt32(Console.ReadLine());
+            Console.Write(MAX);
+            max = Convert.ToInt32(Console.ReadLine()) + 1;
+            Random random = new Random();
+            Console.WriteLine(random.Next(min, max));
+        }
+        public static void CountLetter()
+        {
+            const string MSG = "Escriu una frase: ";
+            string input;
+            int vowelCount = 0, consCount = 0, blankSpace = 0;
+            Console.Write(MSG);
+            input = Console.ReadLine();
+            input = input.ToUpper();
+            for (int i = 0; i < input.Length; i++)
+            {
+                if ((input[i] == 'A') || (input[i] == 'E') || (input[i] == 'I') || (input[i] == 'O') || (input[i] == 'U'))
+                {
+                    vowelCount++;
+                }
+                else
+                {
+                    consCount++;
+                }
+                if (input[i] == ' ')
+                {
+                    blankSpace++;
+                }
+            }
+            Console.Write("Vocals: {0}, consonants: {1}", vowelCount, (consCount - blankSpace));
         }
     }
 }
